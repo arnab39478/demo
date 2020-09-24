@@ -32,7 +32,7 @@ public class Farmer {
 	@Column(name = "Land_Area")
 	private String landArea;
 	
-	@Column(name = "Land_Pincode")
+	@Column(name = "Land_Pin_Code")
 	private int landPincode;
 	
 	@Column(name = "Account_No")
