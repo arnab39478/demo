@@ -11,28 +11,39 @@ public class Farmer {
 	
 	@Column(name = "Full_Name")
 	private String fullName;
+	
 	@Column(name = "Contact_No")
 	private long contactNo;
+	
 	@Id
 	@Column(name = "Email_Id")
 	private String emailId;
+	
 	private String address;
 	private String city;
 	private String state;
-	private int pincode;
+	
+	@Column(name = "Pin_Code")
+	private int pinCode;
+	
 	@Column(name = "Land_Address")
 	private String landAddress;
+	
 	@Column(name = "Land_Area")
 	private String landArea;
+	
 	@Column(name = "Land_Pincode")
 	private int landPincode;
+	
 	@Column(name = "Account_No")
 	private long accountNo;
+	
 	private String ifsc;
 	private String aadhar;
 	private String pan;
 	private String certificate;
 	private String password;
+	
 	@Column(name = "Approved_Status")
 	private char approvedStatus;
 	
@@ -55,7 +66,7 @@ public class Farmer {
 		return state;
 	}
 	public int getPincode() {
-		return pincode;
+		return pinCode;
 	}
 	public String getLandAddress() {
 		return landAddress;
@@ -105,8 +116,8 @@ public class Farmer {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public void setPincode(int pincode) {
-		this.pincode = pincode;
+	public void setPinCode(int pinCode) {
+		this.pinCode = pinCode;
 	}
 	public void setLandAddress(String landAddress) {
 		this.landAddress = landAddress;

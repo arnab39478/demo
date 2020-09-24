@@ -2,6 +2,7 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,7 @@ public class Bidder {
 	@Column(name = "Contact_Name")
 	private long contactNo;
 	
+	@Id
 	@Column(name = "Email_Id")
 	private String emailId;
 	
