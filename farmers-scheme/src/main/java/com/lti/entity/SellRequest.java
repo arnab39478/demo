@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +19,9 @@ public class SellRequest {
 	@Column(name = "Request_Id")
 	private int requestId;
 	
-	@Column(name = "Email_Id")
-	private String emailId;
+	@ManyToOne
+	@JoinColumn(name = "Farmer_EmailId")
+	private Farmer farmer;
 	
 	@Column(name = "Request_Date")
 	private LocalDate requestDate;
@@ -56,8 +59,8 @@ public class SellRequest {
 		return requestId;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public Farmer getFarmer() {
+		return farmer;
 	}
 
 	public LocalDate getRequestDate() {
@@ -108,8 +111,8 @@ public class SellRequest {
 		this.requestId = requestId;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setFarmer(Farmer farmer) {
+		this.farmer = farmer;
 	}
 
 	public void setRequestDate(LocalDate requestDate) {
@@ -155,6 +158,7 @@ public class SellRequest {
 	public void setBiddingStatus(char biddingStatus) {
 		this.biddingStatus = biddingStatus;
 	}
+
 	
 	
 	
