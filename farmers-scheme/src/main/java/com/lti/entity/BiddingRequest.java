@@ -86,7 +86,7 @@ public class BiddingRequest {
 	public void setBidDate(LocalDate bidDate) {
 		this.bidDate = bidDate;
 	}
-
+	
 	public void setBidInProcess(int bidInProcess) {
 		this.bidInProcess = bidInProcess;
 	}
