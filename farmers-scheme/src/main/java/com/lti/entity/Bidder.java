@@ -44,6 +44,7 @@ public class Bidder {
 	private String password;
 	
 	@OneToMany(mappedBy = "bidder", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Column(name = "Bidding_Requests")
 	private List<BiddingRequest> biddingRequest;
 	
 

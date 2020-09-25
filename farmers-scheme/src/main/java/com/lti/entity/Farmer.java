@@ -53,6 +53,7 @@ public class Farmer {
 	private char approvedStatus;
 	
 	@OneToMany(mappedBy = "farmer", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Column(name = "Sell_Requests")
 	private List<SellRequest> sellRequest;
 
 	public String getFullName() {
