@@ -1,8 +1,13 @@
 package com.lti.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +42,10 @@ public class Bidder {
 	private String traderLicense;
 	
 	private String password;
+	
+	@OneToMany(mappedBy = "bidder", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<BiddingRequest> biddingRequest;
+	
 
 	public String getFullName() {
 		return fullName;
@@ -141,5 +150,15 @@ public class Bidder {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public List<BiddingRequest> getBiddingRequest() {
+		return biddingRequest;
+	}
+
+	public void setBiddingRequest(List<BiddingRequest> biddingRequest) {
+		this.biddingRequest = biddingRequest;
+	}
+	
+	
 
 }

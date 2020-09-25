@@ -17,8 +17,8 @@ import javax.persistence.Table;
 public class SellRequest {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator= "req")
-	@SequenceGenerator(name= "req", sequenceName = "request_seq", allocationSize= 10)
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator= "sellreq")
+	@SequenceGenerator(name= "sellreq", sequenceName = "request_seq", allocationSize= 1)
 	@Column(name = "Request_Id")
 	private int requestId;
 	

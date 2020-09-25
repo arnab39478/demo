@@ -1,8 +1,13 @@
 package com.lti.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -47,108 +52,154 @@ public class Farmer {
 	@Column(name = "Approved_Status")
 	private char approvedStatus;
 	
+	@OneToMany(mappedBy = "farmer", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<SellRequest> sellRequest;
+
 	public String getFullName() {
 		return fullName;
 	}
+
 	public long getContactNo() {
 		return contactNo;
 	}
+
 	public String getEmailId() {
 		return emailId;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public String getState() {
 		return state;
 	}
-	public int getPincode() {
+
+	public int getPinCode() {
 		return pinCode;
 	}
+
 	public String getLandAddress() {
 		return landAddress;
 	}
+
 	public String getLandArea() {
 		return landArea;
 	}
+
 	public int getLandPincode() {
 		return landPincode;
 	}
-	public long getAccNo() {
+
+	public long getAccountNo() {
 		return accountNo;
 	}
+
 	public String getIfsc() {
 		return ifsc;
 	}
+
 	public String getAadhar() {
 		return aadhar;
 	}
+
 	public String getPan() {
 		return pan;
 	}
+
 	public String getCertificate() {
 		return certificate;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public char getApprovedStatus() {
 		return approvedStatus;
 	}
+
+	public List<SellRequest> getSellRequest() {
+		return sellRequest;
+	}
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
 	public void setContactNo(long contactNo) {
 		this.contactNo = contactNo;
 	}
+
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public void setState(String state) {
 		this.state = state;
 	}
+
 	public void setPinCode(int pinCode) {
 		this.pinCode = pinCode;
 	}
+
 	public void setLandAddress(String landAddress) {
 		this.landAddress = landAddress;
 	}
+
 	public void setLandArea(String landArea) {
 		this.landArea = landArea;
 	}
+
 	public void setLandPincode(int landPincode) {
 		this.landPincode = landPincode;
 	}
-	public void setAccNo(long accountNo) {
+
+	public void setAccountNo(long accountNo) {
 		this.accountNo = accountNo;
 	}
+
 	public void setIfsc(String ifsc) {
 		this.ifsc = ifsc;
 	}
+
 	public void setAadhar(String aadhar) {
 		this.aadhar = aadhar;
 	}
+
 	public void setPan(String pan) {
 		this.pan = pan;
 	}
+
 	public void setCertificate(String certificate) {
 		this.certificate = certificate;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public void setApprovedStatus(char approvedStatus) {
 		this.approvedStatus = approvedStatus;
 	}
+
+	public void setSellRequest(List<SellRequest> sellRequest) {
+		this.sellRequest = sellRequest;
+	}
+	
+	
 	
 	
 

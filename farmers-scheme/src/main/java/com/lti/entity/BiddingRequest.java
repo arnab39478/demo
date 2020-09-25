@@ -5,9 +5,11 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,8 @@ import javax.persistence.Table;
 public class BiddingRequest {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator= "bidreq")
+	@SequenceGenerator(name= "bidreq", sequenceName = "bid_seq", allocationSize= 1)
 	@Column(name = "Bid_Id")
 	private int bidId;
 	
