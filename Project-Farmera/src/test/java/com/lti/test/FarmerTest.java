@@ -10,7 +10,7 @@ import com.lti.entity.Farmer;
 
 
 
-public class AppTest {
+public class FarmerTest {
 	
 	@Test
 	public void addFarmer() {
