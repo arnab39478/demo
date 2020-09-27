@@ -29,7 +29,7 @@ public class SellRequest {
 	@Column(name = "Request_Date")
 	private LocalDate requestDate;
 	
-	@Column(name = "Crop_Date")
+	@Column(name = "Crop_Type")
 	private String cropType;
 	
 	@Column(name = "Crop_Name")
@@ -38,7 +38,7 @@ public class SellRequest {
 	private String quantity;
 	
 	@Column(name = "Base_Price")
-	private String basePrice;
+	private int basePrice;
 	
 	@Column(name = "Fertilizer_Type")
 	private String fertilizerType;
@@ -82,7 +82,7 @@ public class SellRequest {
 		return quantity;
 	}
 
-	public String getBasePrice() {
+	public int getBasePrice() {
 		return basePrice;
 	}
 
@@ -134,7 +134,7 @@ public class SellRequest {
 		this.quantity = quantity;
 	}
 
-	public void setBasePrice(String basePrice) {
+	public void setBasePrice(int basePrice) {
 		this.basePrice = basePrice;
 	}
 
