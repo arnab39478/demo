@@ -1,14 +1,18 @@
 package com.lti.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,7 +33,7 @@ public class SellRequest {
 	@Column(name = "Request_Date")
 	private LocalDate requestDate;
 
-	@Column(name = "Crop_Date")
+	@Column(name = "Crop_Type")
 	private String cropType;
 
 	@Column(name = "Crop_Name")
@@ -57,6 +61,10 @@ public class SellRequest {
 
 	@Column(name = "Bidding_Status")
 	private char biddingStatus;
+	
+	@OneToMany(mappedBy = "sellRequest", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@Column(name = "Bidding_Requests")
+	private List<BiddingRequest> biddingRequest;
 
 	public int getRequestId() {
 		return requestId;
@@ -110,6 +118,10 @@ public class SellRequest {
 		return biddingStatus;
 	}
 
+	public List<BiddingRequest> getBiddingRequest() {
+		return biddingRequest;
+	}
+
 	public void setRequestId(int requestId) {
 		this.requestId = requestId;
 	}
@@ -161,6 +173,12 @@ public class SellRequest {
 	public void setBiddingStatus(char biddingStatus) {
 		this.biddingStatus = biddingStatus;
 	}
+
+	public void setBiddingRequest(List<BiddingRequest> biddingRequest) {
+		this.biddingRequest = biddingRequest;
+	}
+	
+	
 
 
 }

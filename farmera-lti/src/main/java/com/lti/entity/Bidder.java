@@ -36,6 +36,8 @@ public class Bidder {
 	private String ifsc;
 	private String aadhar;
 	private String pan;
+	
+	@Column(name = "Trader_License")
 	private String traderLicense;
 	private String password;
 

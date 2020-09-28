@@ -13,7 +13,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name=" Bidding_Request")
+@Table(name="Bidding_Request")
 public class BiddingRequest {
 
 	@Id
@@ -21,70 +21,84 @@ public class BiddingRequest {
 	@SequenceGenerator(name= "bidreq", sequenceName = "bidding_request_seq", allocationSize= 1)
 	@Column(name="bid_id")
 	private int id;
+	
+	@ManyToOne
+	@JoinColumn(name = "Bidder_EmailId")
+	private Bidder bidder;
+	
+	@ManyToOne
+	@JoinColumn(name = "Farmer_SellRequestId")
+	private SellRequest sellRequest;	
 
 	@Column(name="bid_amount")
 	private double amount;
 
-	@Column(name="bid_date")
-	private LocalDate date;
+	@Column(name="Bid_Date")
+	private LocalDate bidDate;
+	
+	@Column(name = "Approved_Status")
+	private char approvedStatus;
 
-	@Column(name="final_acceptance_status")
-	private char finalAcceptanceStatus;
-
-	@Column(name= "final_acceptance_date")
-	private LocalDate finalAcceptanceDate;
-
-	@ManyToOne
-	@JoinColumn(name = "Bidder_EmailId")
-	private Bidder bidder;
+	@Column(name="Final_Status")
+	private char finalStatus;
 
 	public int getId() {
 		return id;
-	}
-
-	public double getAmount() {
-		return amount;
-	}
-
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public char getFinalAcceptanceStatus() {
-		return finalAcceptanceStatus;
-	}
-
-	public LocalDate getFinalAcceptanceDate() {
-		return finalAcceptanceDate;
 	}
 
 	public Bidder getBidder() {
 		return bidder;
 	}
 
+	public SellRequest getSellRequest() {
+		return sellRequest;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public LocalDate getBidDate() {
+		return bidDate;
+	}
+
+	public char getApprovedStatus() {
+		return approvedStatus;
+	}
+
+	public char getFinalStatus() {
+		return finalStatus;
+	}
+
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public void setBidder(Bidder bidder) {
+		this.bidder = bidder;
+	}
+
+	public void setSellRequest(SellRequest sellRequest) {
+		this.sellRequest = sellRequest;
 	}
 
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setBidDate(LocalDate bidDate) {
+		this.bidDate = bidDate;
 	}
 
-	public void setFinalAcceptanceStatus(char finalAcceptanceStatus) {
-		this.finalAcceptanceStatus = finalAcceptanceStatus;
+	public void setApprovedStatus(char approvedStatus) {
+		this.approvedStatus = approvedStatus;
 	}
 
-	public void setFinalAcceptanceDate(LocalDate finalAcceptanceDate) {
-		this.finalAcceptanceDate = finalAcceptanceDate;
+	public void setFinalStatus(char finalStatus) {
+		this.finalStatus = finalStatus;
 	}
 
-	public void setBidder(Bidder bidder) {
-		this.bidder = bidder;
-	}
+	
 
 	
 

@@ -7,7 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.lti.dao.GenericDao;
+import com.lti.entity.Bidder;
 import com.lti.entity.BiddingRequest;
+import com.lti.entity.SellRequest;
 
 public class BiddingRequestTest {
 
@@ -16,23 +18,38 @@ public class BiddingRequestTest {
 		ApplicationContext ctx= new ClassPathXmlApplicationContext("spring-config.xml");
 		BiddingRequest bidreq1= new BiddingRequest();
 		bidreq1.setAmount(4000);
-		bidreq1.setDate(LocalDate.of(2020, 03, 06));
-		bidreq1.setFinalAcceptanceStatus('N');
-		bidreq1.setFinalAcceptanceDate(LocalDate.of(2020, 03, 10));
+		bidreq1.setBidDate(LocalDate.of(2020, 03, 06));
+		bidreq1.setApprovedStatus('N');
+		bidreq1.setFinalStatus('N');
+
 
 		BiddingRequest bidreq2= new BiddingRequest();
 		bidreq2.setAmount(7000);
-		bidreq2.setDate(LocalDate.of(2020, 07, 15));
-		bidreq2.setFinalAcceptanceStatus('N');
-		bidreq2.setFinalAcceptanceDate(LocalDate.of(2020, 07, 22));
-
+		bidreq2.setBidDate(LocalDate.of(2020, 07, 15));
+		bidreq2.setApprovedStatus('N');
+		bidreq2.setFinalStatus('N');
+		
 		BiddingRequest bidreq3= new BiddingRequest();
 		bidreq3.setAmount(5000);
-		bidreq3.setDate(LocalDate.of(2020, 05, 10));
-		bidreq3.setFinalAcceptanceStatus('N');
-		bidreq3.setFinalAcceptanceDate(LocalDate.of(2020, 05, 15));
+		bidreq3.setBidDate(LocalDate.of(2020, 05, 10));
+		bidreq3.setApprovedStatus('N');
+		bidreq3.setFinalStatus('N');
 
 		GenericDao gendao= (GenericDao) ctx.getBean("dao");
+		Bidder bidder1 = gendao.fetchById(Bidder.class, "shyam345@email.com");
+		Bidder bidder2 = gendao.fetchById(Bidder.class, "lakhan987@email.com");
+		Bidder bidder3 = gendao.fetchById(Bidder.class, "vijay678@email.com");
+		bidreq1.setBidder(bidder1);
+		bidreq2.setBidder(bidder2);
+		bidreq3.setBidder(bidder3);
+		
+		SellRequest sellreq1 = gendao.fetchById(SellRequest.class, 7);
+		SellRequest sellreq2 = gendao.fetchById(SellRequest.class, 8);
+		SellRequest sellreq3 = gendao.fetchById(SellRequest.class, 9);
+		bidreq1.setSellRequest(sellreq1);
+		bidreq2.setSellRequest(sellreq2);
+		bidreq3.setSellRequest(sellreq3);
+		
 		gendao.save(bidreq1);
 		gendao.save(bidreq2);
 		gendao.save(bidreq3);

@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.lti.dao.GenericDao;
+import com.lti.entity.Farmer;
 import com.lti.entity.SellRequest;
 
 public class SellRequestTest {
@@ -55,10 +56,19 @@ public class SellRequestTest {
 
 
 		GenericDao gendao= (GenericDao) ctx.getBean("dao");
+		Farmer farmer1=gendao.fetchById(Farmer.class, "mohit123@gmail.com");
+		Farmer farmer2=gendao.fetchById(Farmer.class, "ram345@gmail.com");
+		Farmer farmer3=gendao.fetchById(Farmer.class, "suresh578@gmail.com");
+		sellreq1.setFarmer(farmer1);
+		sellreq2.setFarmer(farmer2);
+		sellreq3.setFarmer(farmer3);
+		
 		gendao.save(sellreq1);
 		gendao.save(sellreq2);
 		gendao.save(sellreq3);
 
 	}
+	
+	
 
 }

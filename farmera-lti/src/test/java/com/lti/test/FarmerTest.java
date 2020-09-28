@@ -17,7 +17,7 @@ public class FarmerTest {
 		Farmer farmer1= new Farmer();
 		farmer1.setFullName("Mohit Singh");
 		farmer1.setContactNo("9434847532");
-		farmer1.setEmailId("mohit123@email.com");
+		farmer1.setEmailId("mohit123@gmail.com");
 		farmer1.setAddress("Station Road");
 		farmer1.setCity("Hyderabad");
 		farmer1.setState("Telengana");
@@ -36,7 +36,7 @@ public class FarmerTest {
 		Farmer farmer2= new Farmer();
 		farmer2.setFullName("Ram Kumar");
 		farmer2.setContactNo("9434764390");
-		farmer2.setEmailId("ram345@email.com");
+		farmer2.setEmailId("ram345@gmail.com");
 		farmer2.setAddress("Bazaar Road");
 		farmer2.setCity("Delhi");
 		farmer2.setState("Delhi");
@@ -55,7 +55,7 @@ public class FarmerTest {
 		Farmer farmer3= new Farmer();
 		farmer3.setFullName("Suresh Prasad");
 		farmer3.setContactNo("9434543475");
-		farmer3.setEmailId("suresh578@email.com");
+		farmer3.setEmailId("suresh578@gmail.com");
 		farmer3.setAddress("Park Street");
 		farmer3.setCity("Kolkata");
 		farmer3.setState("West Bengal");
@@ -76,5 +76,5 @@ public class FarmerTest {
 		gendao.save(farmer2);
 		gendao.save(farmer3);
 	}
-
+	
 }
