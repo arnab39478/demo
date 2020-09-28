@@ -8,4 +8,6 @@ public interface SellRequestDao {
 
 	List<SellRequest> fetchSellRequestsByFarmer(String email);
 
+	List<SellRequest> fetchSellRequestsBidByBidder(String email);
+
 }

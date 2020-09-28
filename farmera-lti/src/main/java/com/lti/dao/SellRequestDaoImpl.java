@@ -14,5 +14,11 @@ public class SellRequestDaoImpl extends GenericDaoImpl implements SellRequestDao
 		String jpql="select sr from SellRequest sr join sr.farmer f where f.emailId=:em";
 		return entityManager.createQuery(jpql).setParameter("em", email).getResultList();
 	}
+	
+	public List<SellRequest> fetchSellRequestsBidByBidder(String email){
+		
+		String jpql="select sr from SellRequest sr join sr.biddingRequest br where br.bidder.emailId=:em";
+		return entityManager.createQuery(jpql).setParameter("em", email).getResultList();
+	}
 
 }
