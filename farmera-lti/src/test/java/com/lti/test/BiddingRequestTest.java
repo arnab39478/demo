@@ -36,16 +36,16 @@ public class BiddingRequestTest {
 		bidreq3.setFinalStatus('N');
 
 		GenericDao gendao= (GenericDao) ctx.getBean("dao");
-		Bidder bidder1 = gendao.fetchById(Bidder.class, "shyam345@email.com");
-		Bidder bidder2 = gendao.fetchById(Bidder.class, "lakhan987@email.com");
-		Bidder bidder3 = gendao.fetchById(Bidder.class, "vijay678@email.com");
+		Bidder bidder1 = gendao.fetchById(Bidder.class, 1);
+		Bidder bidder2 = gendao.fetchById(Bidder.class, 2);
+		Bidder bidder3 = gendao.fetchById(Bidder.class, 3);
 		bidreq1.setBidder(bidder1);
 		bidreq2.setBidder(bidder2);
 		bidreq3.setBidder(bidder3);
 		
-		SellRequest sellreq1 = gendao.fetchById(SellRequest.class, 7);
-		SellRequest sellreq2 = gendao.fetchById(SellRequest.class, 8);
-		SellRequest sellreq3 = gendao.fetchById(SellRequest.class, 9);
+		SellRequest sellreq1 = gendao.fetchById(SellRequest.class, 21);
+		SellRequest sellreq2 = gendao.fetchById(SellRequest.class, 22);
+		SellRequest sellreq3 = gendao.fetchById(SellRequest.class, 23);
 		bidreq1.setSellRequest(sellreq1);
 		bidreq2.setSellRequest(sellreq2);
 		bidreq3.setSellRequest(sellreq3);

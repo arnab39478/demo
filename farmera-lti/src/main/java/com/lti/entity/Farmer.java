@@ -6,21 +6,29 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Farmer {
 
+	@Id
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator= "farmerseq")
+	@SequenceGenerator(name= "farmerseq", sequenceName = "farmer_seq", allocationSize= 1)
+	@Column(name = "Farmer_Id")
+	private int id;
+	
 	@Column(name = "Full_Name")
 	private String fullName;
 
 	@Column(name = "Contact_No")
 	private String contactNo;
 
-	@Id
 	@Column(name = "Email_Id")
 	private String emailId;
 
@@ -199,5 +207,15 @@ public class Farmer {
 	public void setSellRequest(List<SellRequest> sellRequest) {
 		this.sellRequest = sellRequest;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
 
 }

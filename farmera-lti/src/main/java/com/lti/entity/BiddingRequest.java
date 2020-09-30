@@ -23,7 +23,7 @@ public class BiddingRequest {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name = "Bidder_EmailId")
+	@JoinColumn(name = "Bidder_Id")
 	private Bidder bidder;
 	
 	@ManyToOne

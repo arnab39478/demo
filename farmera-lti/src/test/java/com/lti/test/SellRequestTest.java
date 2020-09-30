@@ -56,9 +56,9 @@ public class SellRequestTest {
 
 
 		GenericDao gendao= (GenericDao) ctx.getBean("dao");
-		Farmer farmer1=gendao.fetchById(Farmer.class, "mohit123@gmail.com");
-		Farmer farmer2=gendao.fetchById(Farmer.class, "ram345@gmail.com");
-		Farmer farmer3=gendao.fetchById(Farmer.class, "suresh578@gmail.com");
+		Farmer farmer1=gendao.fetchById(Farmer.class, 1);
+		Farmer farmer2=gendao.fetchById(Farmer.class, 2);
+		Farmer farmer3=gendao.fetchById(Farmer.class, 3);
 		sellreq1.setFarmer(farmer1);
 		sellreq2.setFarmer(farmer2);
 		sellreq3.setFarmer(farmer3);

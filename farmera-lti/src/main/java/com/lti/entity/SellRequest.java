@@ -27,7 +27,7 @@ public class SellRequest {
 	private int requestId;
 
 	@ManyToOne
-	@JoinColumn(name = "Farmer_EmailId")
+	@JoinColumn(name = "Farmer_Id")
 	private Farmer farmer;
 
 	@Column(name = "Request_Date")
